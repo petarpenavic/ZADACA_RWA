@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promijeni Pozadinu</title>
+    <script>
+        function promijeniPozadinu() {
+            // Generiranje slučajne boje u rasponu #000000 - #FFFFFF
+            var novaBoja = '#' + Math.floor(Math.random()*16777215).toString(16);
+
+            // Postavljanje nove boje pozadine
+            document.body.style.backgroundColor = novaBoja;
+
+            // Ispis trenutne boje ispod dugmeta
+            document.getElementById("trenutnaBoja").innerHTML = "Trenutna boja: " + novaBoja;
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Promijeni Pozadinu</h1>
+    
+    <button onclick="promijeniPozadinu()">Promijeni pozadinu</button>
+
+    <div id="trenutnaBoja"></div>
+
+</body>
+</html>

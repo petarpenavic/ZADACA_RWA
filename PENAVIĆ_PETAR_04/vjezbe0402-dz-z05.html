@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validacija Registracijske Oznake</title>
+    <script>
+        function validirajRegistraciju(registracija) {
+            // Regularni izraz za validaciju registarske oznake BiH
+            var regex = /^[AEJKMOTaejkmot]\d{2}-[AEJKMOTaejkmot]-\d{3}$/;
+
+            // Provjera i vraćanje rezultata
+            return regex.test(registracija);
+        }
+
+        function provjeriValidaciju() {
+            // Dobivanje vrijednosti unesene registarske oznake iz tekstualnog polja
+            var registracija = document.getElementById("registracija").value;
+
+            // Validacija registarske oznake
+            var ispravnaRegistracija = validirajRegistraciju(registracija);
+
+            // Ispis rezultata u alert dijalogu
+            if (ispravnaRegistracija) {
+                alert("Ispravna registracija: " + registracija);
+            } else {
+                alert("Neispravna registracija. Molimo unesite ispravan format.");
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Validacija Registracijske Oznake</h1>
+
+    <form>
+        <label for="registracija">Unesite registarsku oznaku (npr. A00-A-000): </label>
+        <input type="text" id="registracija" name="registracija">
+        <button type="button" onclick="provjeriValidaciju()">Validacija</button>
+    </form>
+
+</body>
+</html>

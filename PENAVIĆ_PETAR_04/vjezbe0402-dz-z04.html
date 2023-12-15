@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unos Ocjene</title>
+    <script>
+        function provjeriOcijenu() {
+            // Dobivanje vrijednosti unesene ocjene iz tekstualnog polja
+            var ocjena = document.getElementById("ocjena").value;
+
+            // Pretvaranje ocjene u numerički format
+            ocjena = parseInt(ocjena);
+
+            // Provjera i ispis ocjene
+            if (!isNaN(ocjena) && ocjena >= 1 && ocjena <= 5) {
+                var opisOcjene = "";
+                switch (ocjena) {
+                    case 1:
+                        opisOcjene = "Nedovoljan";
+                        break;
+                    case 2:
+                        opisOcjene = "Dovoljan";
+                        break;
+                    case 3:
+                        opisOcjene = "Dobar";
+                        break;
+                    case 4:
+                        opisOcjene = "Vrlo dobar";
+                        break;
+                    case 5:
+                        opisOcjene = "Odličan";
+                        break;
+                }
+                // Ispis ispod forme
+                document.getElementById("rezultat").innerHTML = "Ocjena: " + ocjena + " - " + opisOcjene;
+            } else {
+                // Pogrešan unos ocjene
+                document.getElementById("rezultat").innerHTML = "Unesite ispravnu ocjenu od 1 do 5.";
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Unos Ocjene</h1>
+
+    <form>
+        <label for="ocjena">Unesite ocjenu (1-5): </label>
+        <input type="text" id="ocjena" name="ocjena">
+        <button type="button" onclick="provjeriOcijenu()">Provjeri ocjenu</button>
+    </form>
+
+    <p id="rezultat"></p>
+
+</body>
+</html>

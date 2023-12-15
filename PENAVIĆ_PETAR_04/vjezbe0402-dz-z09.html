@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Žarulja</title>
+    <style>
+        #zarulja {
+            width: 100px;
+            height: 150px;
+            background: #ccc;
+            border-radius: 50%;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        #prekidac {
+            width: 80px;
+            height: 30px;
+            background: #ddd;
+            border-radius: 15px;
+            margin: 10px auto;
+            cursor: pointer;
+            text-align: center;
+            line-height: 30px;
+        }
+
+        #prekidac.on {
+            background: #4CAF50;
+            color: white;
+        }
+    </style>
+    <script>
+        function toggleZarulja() {
+            var zarulja = document.getElementById('zarulja');
+            var prekidac = document.getElementById('prekidac');
+
+            if (zarulja.classList.contains('on')) {
+                zarulja.classList.remove('on');
+                prekidac.innerHTML = 'Žarulja ugašena';
+            } else {
+                zarulja.classList.add('on');
+                prekidac.innerHTML = 'Žarulja upaljena';
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Žarulja</h1>
+
+    <div id="zarulja"></div>
+
+    <div id="prekidac" onclick="toggleZarulja()">Prekidač OFF</div>
+
+</body>
+</html>

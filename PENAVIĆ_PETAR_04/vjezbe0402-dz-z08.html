@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Kalkulator</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 300px;
+            margin: auto;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 5px;
+            margin-bottom: 5px;
+        }
+
+        button {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function izracunaj(operacija) {
+            var broj1 = parseFloat(document.getElementById("broj1").value);
+            var broj2 = parseFloat(document.getElementById("broj2").value);
+
+            var rezultat;
+
+            switch (operacija) {
+                case 'zbrajanje':
+                    rezultat = broj1 + broj2;
+                    break;
+                case 'oduzimanje':
+                    rezultat = broj1 - broj2;
+                    break;
+                case 'mnozenje':
+                    rezultat = broj1 * broj2;
+                    break;
+                case 'dijeljenje':
+                    rezultat = broj1 / broj2;
+                    break;
+                case 'sinus':
+                    rezultat = Math.sin(broj1);
+                    break;
+                case 'kosinus':
+                    rezultat = Math.cos(broj1);
+                    break;
+                case 'tanges':
+                    rezultat = Math.tan(broj1);
+                    break;
+                case 'logaritam':
+                    rezultat = Math.log(broj1);
+                    break;
+                case 'logaritamBaza10':
+                    rezultat = Math.log10(broj1);
+                    break;
+                case 'kvadriranje':
+                    rezultat = Math.pow(broj1, 2);
+                    break;
+                case 'kubiranje':
+                    rezultat = Math.pow(broj1, 3);
+                    break;
+                case 'potenciranje':
+                    rezultat = Math.pow(broj1, broj2);
+                    break;
+                default:
+                    rezultat = 'Nepoznata operacija';
+            }
+
+            document.getElementById("rezultat").value = rezultat;
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Online Kalkulator</h1>
+
+    <table>
+        <tr>
+            <td colspan="2"><input type="text" id="broj1" placeholder="Unesite prvi broj"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="text" id="broj2" placeholder="Unesite drugi broj"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="text" id="rezultat" placeholder="Rezultat" readonly></td>
+        </tr>
+        <tr>
+            <td><button onclick="izracunaj('zbrajanje')">Zbrajanje</button></td>
+            <td><button onclick="izracunaj('oduzimanje')">Oduzimanje</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="izracunaj('mnozenje')">Množenje</button></td>
+            <td><button onclick="izracunaj('dijeljenje')">Dijeljenje</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="izracunaj('sinus')">Sinus</button></td>
+            <td><button onclick="izracunaj('kosinus')">Kosinus</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="izracunaj('tanges')">Tanges</button></td>
+            <td><button onclick="izracunaj('logaritam')">Logaritam</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="izracunaj('logaritamBaza10')">Logaritam (baza 10)</button></td>
+            <td><button onclick="izracunaj('kvadriranje')">Kvadriranje</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="izracunaj('kubiranje')">Kubiranje</button></td>
+            <td><button onclick="izracunaj('potenciranje')">Potenciranje</button></td>
+        </tr>
+    </table>
+
+</body>
+</html>
